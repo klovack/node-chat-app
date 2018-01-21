@@ -4,6 +4,7 @@ const express = require('express');
 const socketIO = require('socket.io');
 
 const { generateMessage } = require('./utils/message');
+
 const app = express();
 const port = process.env.PORT || 3000;
 const server = http.createServer(app);
@@ -21,18 +22,23 @@ io.on('connection', (socket) => {
   });
 
   // Add join emit
-  socket.emit('newMessage', generateMessage('Admin', 'Welcome to cakap'));
+  socket.emit(
+    'newMessage',
+    generateMessage('Admin', 'Welcome to cakap'),
+  );
 
-  socket.broadcast.emit('newMessage', generateMessage('Admin', 'New user joined'));
+  socket.broadcast.emit(
+    'newMessage',
+    generateMessage('Admin', 'New user joined'),
+  );
 
-  socket.on('createMessage', (newMessage) => {
-    io.emit('newMessage', generateMessage(newMessage.from, newMessage.text));
+  socket.on('createMessage', (newMessage, callback) => {
+    io.emit(
+      'newMessage',
+      generateMessage(newMessage.from, newMessage.text),
+    );
 
-    // socket.broadcast.emit('newMessage', {
-    //   from: newMessage.from,
-    //   text: newMessage.text,
-    //   createdAt: new Date().getTime(),
-    // });
+    callback(null, 'message sent');
   });
 });
 

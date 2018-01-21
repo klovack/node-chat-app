@@ -7,7 +7,19 @@
 <body>
   <p>Welcome to cakap</p>
 
+  <ul id="messages">
+  </ul>
+
+  <form id="message-field" action="">
+    <input type="text" name="message" placeholder="Type a message...">
+    <button>Send</button>
+  </form>
+
   <script src="/socket.io/socket.io.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.3.0.min.js"
+  integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4="
+  crossorigin="anonymous"></script>
   <script src="/js/index.js"></script>
 </body>
 </html>
