@@ -19,13 +19,13 @@ io.on('connection', (socket) => {
     console.log('user is disconnected');
   });
 
-  socket.emit('new message', {
+  socket.emit('newMessage', {
     from: 'rizki',
     text: 'Hallo',
     createdAt: 123,
   });
 
-  socket.on('create message', (newMessage) => {
+  socket.on('createMessage', (newMessage) => {
     console.log('Create message', newMessage);
   });
 });
