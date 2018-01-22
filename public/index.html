@@ -2,19 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="stylesheet" href="/css/style.css">
   <title>Cakap</title>
 </head>
-<body>
-  <p>Welcome to cakap</p>
+<body class="chat">
+  <div class="wrapper">
+    <div class="chat-sidebar">
+      <h3>People</h3>
+      <div id="users"></div>
+    </div>
 
-  <ul id="messages">
-  </ul>
+    <div class="chat-main">
+      <div class="chat-messages">
+        <ul id="messages">
+        </ul>
+      </div>
 
-  <form id="message-field" action="">
-    <input type="text" name="message" placeholder="Type a message..." autocomplete="off">
-    <button>Send</button>
-  </form>
-  <button id="send-location">Send Location</button>
+      <div class="chat-footer">
+        <form id="message-field" action="">
+          <input type="text" name="message" placeholder="Type a message..." autofocus autocomplete="off">
+          <button>Send</button>
+        </form>
+        <button id="send-location">Send Location</button>
+      </div>
+    </div>
+  </div>
 
   <script src="/socket.io/socket.io.js"></script>
   <script
