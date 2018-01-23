@@ -1,3 +1,6 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
 button {
   border: none;
@@ -22,11 +25,28 @@ button:disabled {
   background: #698ea5;
 }
 
+.centered-form {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background: #dadada;
+}
+
+.centered-form form {
+  background: rgb(238, 238, 238);
+  border-radius: .5em;
+  padding: 2em;
+  box-shadow: 0 0 15px rgb(0, 0, 0)
+}
+
 .chat {
   margin: 0;
   padding: 0;
   background: #FBFAF8;
-  font-family: 'Roboto', sans-serif;
 }
 
 .chat-footer {
@@ -60,7 +80,6 @@ button:disabled {
 
 .chat-footer input[type="text"]:focus {
   outline: none;
-
 }
 
 .chat-main {
@@ -109,6 +128,34 @@ outline: 1px solid slategrey;
   border-right: 1px solid rgb(236, 236, 236);
   background: white;
 }
+
+.form-field {
+  margin: .8em 0;
+}
+
+.form-field .title {
+  text-align: center;
+  font-size: 1.8em;
+}
+
+.form-field * {
+  width: 100%;
+  margin: .2em 0;
+}
+
+.form-field input[type="text"] {
+  flex-grow: 2;
+  padding: .5em;
+  font-size: 1em;
+  border-radius: .5em;
+  background: white;
+  border: none;
+}
+
+.form-field input[type="text"]:focus {
+  outline: none;
+}
+
 
 .message-item {
   border-radius: .5em;

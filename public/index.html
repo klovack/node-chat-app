@@ -2,65 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-  <title>Cakap</title>
+  <title>Join | Cakap</title>
 </head>
-<body class="chat">
-  <div class="wrapper">
-    <div class="chat-sidebar">
-      <h3>People</h3>
-      <div id="users"></div>
-    </div>
-
-    <div class="chat-main">
-      <div class="chat-messages">
-        <ul id="messages">
-        </ul>
+<body class="centered-form">
+  <div>
+    <form action="/chat.html">
+      <div class="form-field">
+        <h3 class="title">Join a Chat</h3>
       </div>
-
-      <div class="chat-footer">
-        <form id="message-field" action="">
-          <input type="text" name="message" placeholder="Type a message..." autofocus autocomplete="off">
-          <button>Send</button>
-        </form>
-        <button id="send-location">Send Location</button>
+      <div class="form-field">
+        <label for="name">Display Name</label>
+        <input type="text" name="name" autofocus>
       </div>
-    </div>
+      <div class="form-field">
+        <label for="room">Room name</label>
+        <input type="text" name="room">
+      </div>
+      <div class="form-field">
+        <button>Join</button>
+      </div>
+    </form>
   </div>
-
-  <script id="message-template" type="text/template">
-    <li class="message-item">
-      <div class="message-sender">
-        <h4>{{from}}</h4>
-      </div>
-      <div class="message-body">
-        <p>{{text}}</p>
-        <span class="message-time">{{createdAt}}</span>
-      </div>
-    </li>
-  </script>
-
-  <script id="location-message-template" type="text/template">
-    <li class="message-item">
-      <div class="message-sender">
-        <h4>{{from}}</h4>
-      </div>
-      <div class="message-body">
-        <a class="message-location" href="{{url}}" target="_blank">My Location</a>
-        <span class="message-time">{{createdAt}}</span>
-      </div>
-    </li>
-  </script>
-
-  <script src="/socket.io/socket.io.js"></script>
-  <script
-  src="https://code.jquery.com/jquery-3.3.0.min.js"
-  integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4="
-  crossorigin="anonymous"></script>
-  <script src="/js/libs/moment.js"></script>
-  <script src="/js/libs/mustache.js"></script>
-  <script src="/js/index.js"></script>
 </body>
 </html>
