@@ -84,6 +84,19 @@ button:disabled {
   -webkit-overflow-scrolling: touch;
 }
 
+.chat-messages::-webkit-scrollbar {
+  width: .4em;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+background-color: darkgrey;
+outline: 1px solid slategrey;
+}
+
 .chat-messages li {
   list-style: none outside;
 }
@@ -142,6 +155,7 @@ button:disabled {
 
   .chat-footer {
     flex-direction: column-reverse;
+    min-height: 80px;
   }
 
   .chat-footer * {

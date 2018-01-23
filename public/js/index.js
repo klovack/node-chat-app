@@ -5,7 +5,17 @@ const socket = io();
 const scrollToBottom = () => {
   const objDiv = jQuery('.chat-messages');
   const messages = jQuery('#messages');
-  objDiv.scrollTop(messages.height());
+  const newMessage = messages.children('li:last-child');
+
+  const clientHeight = objDiv.prop('clientHeight');
+  const scrollTop = objDiv.prop('scrollTop');
+  const scrollHeight = objDiv.prop('scrollHeight');
+  const newMessageHeight = newMessage.innerHeight();
+  const lastMessageHeight = newMessage.prev().innerHeight();
+
+  if (clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
+    objDiv.scrollTop(scrollHeight);
+  }
 };
 
 // Show client that client is connected to server
