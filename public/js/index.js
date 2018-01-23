@@ -14,22 +14,24 @@ socket.on('disconnect', function () {
 
 // Show messages to client
 socket.on('newMessage', function (message) {
+  const formattedTime = moment(message.createdAt).format('h:mm a');
   let li = jQuery('<li></li>');
 
   if (message.from === 'Admin') {
     li = jQuery('<li id="admin"></li');
   }
 
-  li.text(`${message.from}: ${message.text}`);
+  li.text(`${message.from} at ${formattedTime}: ${message.text}`);
   jQuery('#messages').append(li);
 });
 
 // Listen for location information
 socket.on('newLocationMessage', function (message) {
+  const formattedTime = moment(message.createdAt).format('h:mm a');
   const li = jQuery('<li></li>');
   const a = jQuery('<a target="_blank">My current location</a>');
 
-  li.text(`${message.from}: `);
+  li.text(`${message.from} at ${formattedTime}: `);
   a.attr('href', message.url);
   li.append(a);
   jQuery('#messages').append(li);
