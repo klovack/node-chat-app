@@ -2,6 +2,12 @@
 /* eslint func-names: 0 */
 const socket = io();
 
+const scrollToBottom = () => {
+  const objDiv = jQuery('.chat-messages');
+  const messages = jQuery('#messages');
+  objDiv.scrollTop(messages.height());
+};
+
 // Show client that client is connected to server
 socket.on('connect', function () {
   console.log('connected to server');
@@ -14,27 +20,32 @@ socket.on('disconnect', function () {
 
 // Show messages to client
 socket.on('newMessage', function (message) {
-  const formattedTime = moment(message.createdAt).format('h:mm a');
-  let li = jQuery('<li></li>');
+  if (message.text !== '') {
+    const formattedTime = moment(message.createdAt).format('h:mm a');
+    const template = jQuery('#message-template').html();
+    const html = Mustache.render(template, {
+      text: message.text,
+      from: message.from,
+      createdAt: formattedTime,
+    });
 
-  if (message.from === 'Admin') {
-    li = jQuery('<li id="admin"></li');
+    jQuery('#messages').append(html);
+    scrollToBottom();
   }
-
-  li.text(`${message.from} at ${formattedTime}: ${message.text}`);
-  jQuery('#messages').append(li);
 });
 
 // Listen for location information
 socket.on('newLocationMessage', function (message) {
   const formattedTime = moment(message.createdAt).format('h:mm a');
-  const li = jQuery('<li></li>');
-  const a = jQuery('<a target="_blank">My current location</a>');
+  const template = jQuery('#location-message-template').html();
+  const html = Mustache.render(template, {
+    url: message.url,
+    from: message.from,
+    createdAt: formattedTime,
+  });
 
-  li.text(`${message.from} at ${formattedTime}: `);
-  a.attr('href', message.url);
-  li.append(a);
-  jQuery('#messages').append(li);
+  jQuery('#messages').append(html);
+  scrollToBottom();
 });
 
 // Get the message form and emit the message to all clients

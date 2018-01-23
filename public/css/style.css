@@ -22,15 +22,11 @@ button:disabled {
   background: #698ea5;
 }
 
-#admin {
-  color: #929292;
-}
-
 .chat {
   margin: 0;
   padding: 0;
   background: #FBFAF8;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .chat-footer {
@@ -69,9 +65,18 @@ button:disabled {
 
 .chat-main {
   flex-grow: 2;
+  max-width: 80%;
+  margin-left: 1em;
+  background: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-left: 1px solid rgb(236, 236, 236);
+}
+
+.chat-main ul {
+  margin: 1.5em;
+  padding: 0;
 }
 
 .chat-messages {
@@ -81,7 +86,6 @@ button:disabled {
 
 .chat-messages li {
   list-style: none outside;
-  font-size: 1em;
 }
 
 .chat-sidebar {
@@ -89,7 +93,35 @@ button:disabled {
   overflow-y: auto;
   flex-grow: 1;
   max-width: 20%;
-  border-right: 2px solid rgba(151, 151, 151, .5);
+  border-right: 1px solid rgb(236, 236, 236);
+  background: white;
+}
+
+.message-item {
+  border-radius: .5em;
+  background: rgb(241, 241, 241);
+  padding: 1.5em;
+  margin: 1em auto;
+}
+
+.message-sender {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.message-body {
+  color: #61707D;
+  overflow-wrap: break-word;
+}
+
+.message-time {
+  float: right;
+  font-size: .9em;
+}
+
+.message-location {
+  display: block;
 }
 
 .wrapper {
@@ -100,6 +132,7 @@ button:disabled {
   display: flex;
   box-shadow: 0 0 20px black;
   justify-content: space-around;
+  background: rgb(245, 244, 244);
 }
 
 @media (max-width: 600px) {
