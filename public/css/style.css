@@ -3,9 +3,9 @@ body {
 }
 
 button {
-  border: none;
-  background: #61707D;
-  color: white;
+  border: 1px solid rgb(182, 182, 182);
+  background: none;
+  color: inherit;
   cursor: pointer;
   padding: 10px;
   transition: background .3s ease;
@@ -20,9 +20,16 @@ button:hover {
   padding: 10px;
 }
 
+button:focus {
+  outline: none;
+  background: rgb(117, 124, 124);
+  color: white;
+  padding: 10px;
+}
+
 button:disabled {
   cursor: default;
-  background: #698ea5;
+  background: #9aa4aa;
 }
 
 .centered-form {
@@ -40,7 +47,7 @@ button:disabled {
   background: rgb(238, 238, 238);
   border-radius: .5em;
   padding: 2em;
-  box-shadow: 0 0 15px rgb(0, 0, 0)
+  box-shadow: 0 0 15px rgb(128, 128, 128);
 }
 
 .chat {
@@ -53,7 +60,7 @@ button:disabled {
   min-height: 40px;
   padding: 1em;
   display: flex;
-  background: rgba(151, 151, 151, .5);
+  background: rgb(241, 241, 241);
 }
 
 .chat-footer button {
@@ -129,6 +136,10 @@ outline: 1px solid slategrey;
   background: white;
 }
 
+.chat-sidebar h3 {
+  text-align: center;
+}
+
 .form-field {
   margin: .8em 0;
 }
@@ -145,7 +156,7 @@ outline: 1px solid slategrey;
 
 .form-field input[type="text"] {
   flex-grow: 2;
-  padding: .5em;
+  padding: .5em 0;
   font-size: 1em;
   border-radius: .5em;
   background: white;
@@ -190,9 +201,22 @@ outline: 1px solid slategrey;
   max-height: 96vh;
   margin: 1em auto;
   display: flex;
-  box-shadow: 0 0 20px black;
+  box-shadow: 0 0 20px rgb(128, 128, 128);
   justify-content: space-around;
   background: rgb(245, 244, 244);
+}
+
+#users ol {
+  padding: 1em;
+  margin: 0;
+}
+
+#users li {
+  list-style: none;
+  padding: 1em;
+  margin: .5em;
+  background: rgb(241, 241, 241);
+  border-radius: .5em;
 }
 
 @media (max-width: 600px) {

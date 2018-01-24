@@ -20,12 +20,32 @@ const scrollToBottom = () => {
 
 // Show client that client is connected to server
 socket.on('connect', function () {
-  console.log('connected to server');
+  const param = jQuery.deparam(window.location.search);
+
+  socket.emit('join', param, function (err) {
+    if (err) {
+      alert(err);
+      window.location.href = '/';
+    } else {
+      console.log('No error');
+    }
+  });
 });
 
 // Show client that server is down
 socket.on('disconnect', function () {
   console.log('server is disconnected');
+});
+
+// Show users that is in the room
+socket.on('updateUserList', function (users) {
+  const ol = jQuery('<ol></ol>');
+
+  users.forEach(function (user) {
+    ol.append(jQuery('<li></li>').text(user));
+  });
+
+  jQuery('#users').html(ol);
 });
 
 // Show messages to client
