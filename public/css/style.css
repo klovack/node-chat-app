@@ -141,7 +141,7 @@ outline: 1px solid slategrey;
 }
 
 .form-field {
-  margin: .8em 0;
+  padding: .8em 0;
 }
 
 .form-field .title {
@@ -151,16 +151,16 @@ outline: 1px solid slategrey;
 
 .form-field * {
   width: 100%;
-  margin: .2em 0;
+  margin: .2em auto;
 }
 
 .form-field input[type="text"] {
-  flex-grow: 2;
-  padding: .5em 0;
+  padding: .5em;
   font-size: 1em;
   border-radius: .5em;
   background: white;
   border: none;
+  width: 95%;
 }
 
 .form-field input[type="text"]:focus {
